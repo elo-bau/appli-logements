@@ -1,0 +1,13 @@
+# Read the documentation: https://symfony.com/doc/master/bundles/FOSRestBundle/index.html
+fos_rest:
+  #BODY-CONVERTER => permet la sérialization et la déserialization des données
+  body_converter:
+    enabled: true
+  #VIEW => permet à fosrest d'être à l'écoute du @Rest\View()
+  view:
+    view_response_listener: true
+    formats: { json: true, xml: false, rss: false }
+  format_listener:
+    rules:
+      - { path: ^/api, prefer_extension: true, fallback_format: json, priorities: [ json, html ]}
+
